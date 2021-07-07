@@ -10,11 +10,11 @@
              ./cachix.nix
              ./environment.nix
              ./fontconfig.nix
-             # ./gnome.nix
+             ./gnome.nix
              ./hardware-configuration.nix
              ./nvidia.nix
-             ./openbox.nix
-             # ./xfce_bspwm.nix
+             # ./nvidia-external.nix
+             # ./openbox.nix
         ];
 
     # Enable zsh

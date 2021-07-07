@@ -20,9 +20,11 @@ in
       copy-on-select = true;
       paste-strip-first-char = true;
       paste-strip-trailing-whitespace = true;
+      quake-height-percent = 80;
       quake-specific-monitor = 0;
       unsafe-paste-alert = false;
       warn-vte-config-issue = false;
+      window-style = "disable-csd-hide-toolbar";
     };
 
     "com/gexperts/Tilix/profiles" = {
@@ -41,6 +43,7 @@ in
       font = "JetBrainsMono Nerd Font Mono 12";
       foreground-color = "#d1d1cacae8e8";
       palette = [ "#2f2f29294242" "#ffff85857f7f" "#4848b6b68585" "#e6e6c0c00000" "#aeae8181ffff" "#efef61615555" "#c2c2ffffdfdf" "#f8f8f8f8f2f2" "#757550507b7b" "#f1f156568e8e" "#5a5adbdba2a2" "#d5d5a4a42525" "#c5c5a3a3ffff" "#efef61615555" "#c2c2ffffffff" "#f8f8f8f8f0f0" ];
+      scroll-on-output = true;
       terminal-bell = "none";
       use-system-font = false;
       use-theme-background = false;
@@ -57,6 +60,16 @@ in
     };
 
     "com/gexperts/Tilix/profiles/7d6cfb5a-5f5f-4518-8923-fd79b29139d2" = {
+      background-color = "#1D1D1C1C3131";
+      font = "iMWritingMonoS Nerd Font 11";
+      foreground-color = "#CBCBE3E3E7E7";
+      notify-silence-enabled = false;
+      notify-silence-threshold = 0;
+      palette = [ "#585852527373" "#F0F02D2D6E6E" "#6161D1D19696" "#F2F2B4B48282" "#6363B1B1FFFF" "#A3A37A7ACCCC" "#6262F2F2F0F0" "#8A8A88889D9D" "#1D1D1C1C3131" "#F4F48F8FB1B1" "#A1A1EFEFD3D3" "#FFFFE6E6B3B3" "#9191DDDDFFFF" "#D3D3BFBFFFFF" "#8787DEDEEBEB" "#CBCBE3E3E7E7" ];
+      scroll-on-output = false;
+      terminal-bell = "none";
+      use-system-font = false;
+      use-theme-colors = false;
       visible-name = "Unnamed";
     };
 
@@ -65,6 +78,19 @@ in
       quake-mode-height = 80;
       quake-mode-hotkey = [ "<Alt>z" ];
       quake-mode-width = 100;
+    };
+
+    "org/blueman/general" = {
+      window-properties = [ 810 350 304 140 ];
+    };
+
+    "org/blueman/plugins/powermanager" = {
+      auto-power-on = "@mb true";
+    };
+
+    "org/gnome/baobab/ui" = {
+      window-size = mkTuple [ 960 600 ];
+      window-state = 87168;
     };
 
     "org/gnome/calculator" = {
@@ -106,7 +132,7 @@ in
 
     "org/gnome/desktop/background" = {
       picture-options = "zoom";
-      picture-uri = "file:///home/jas/onedrive/Pictures/wallpapers/scifi-fantasy/synthwave-tech.jpg";
+      picture-uri = "file:///home/jas/onedrive/Pictures/wallpapers/scifi-fantasy/sunset.jpg";
     };
 
     "org/gnome/desktop/input-sources" = {
@@ -124,8 +150,8 @@ in
       font-hinting = "slight";
       font-name = "NotoSans Nerd Font 11";
       gtk-im-module = "gtk-im-context-simple";
-      gtk-theme = "Dracula";
-      icon-theme = "Papirus-Dark";
+      gtk-theme = "Adwaita-dark";
+      icon-theme = "Marwaita-Dark";
       monospace-font-name = "JetBrainsMono Nerd Font Mono 11";
       show-battery-percentage = true;
       text-scaling-factor = 1.25;
@@ -160,8 +186,16 @@ in
       application-id = "gnome-power-panel.desktop";
     };
 
+    "org/gnome/desktop/notifications/application/org-gnome-chromegnomeshell" = {
+      application-id = "org.gnome.ChromeGnomeShell.desktop";
+    };
+
     "org/gnome/desktop/notifications/application/org-gnome-epiphany" = {
       application-id = "org.gnome.Epiphany.desktop";
+    };
+
+    "org/gnome/desktop/notifications/application/org-gnome-extensions-desktop" = {
+      application-id = "org.gnome.Extensions.desktop.desktop";
     };
 
     "org/gnome/desktop/notifications/application/org-gnome-nautilus" = {
@@ -197,7 +231,7 @@ in
     "org/gnome/desktop/screensaver" = {
       lock-delay = "uint32 0";
       lock-enabled = false;
-      picture-uri = "file:///home/jas/onedrive/Pictures/wallpapers/scifi-fantasy/synthwave-tech.jpg";
+      picture-uri = "file:///home/jas/onedrive/Pictures/wallpapers/scifi-fantasy/sunset.jpg";
     };
 
     "org/gnome/desktop/session" = {
@@ -206,7 +240,7 @@ in
 
     "org/gnome/desktop/sound" = {
       event-sounds = true;
-      theme-name = "__custom";
+      theme-name = "freedesktop";
     };
 
     "org/gnome/desktop/wm/keybindings" = {
@@ -216,6 +250,11 @@ in
     "org/gnome/desktop/wm/preferences" = {
       button-layout = "appmenu:minimize,maximize,close";
       titlebar-font = "NotoSans Nerd Font Semi-Bold 11";
+    };
+
+    "org/gnome/eog/view" = {
+      background-color = "rgb(0,0,0)";
+      use-background-color = true;
     };
 
     "org/gnome/epiphany" = {
@@ -272,13 +311,19 @@ in
       click-policy = "single";
       default-folder-viewer = "list-view";
       search-filter-time-type = "last_modified";
+      search-view = "list-view";
       show-delete-permanently = false;
     };
 
     "org/gnome/nautilus/window-state" = {
       initial-size = mkTuple [ 1070 793 ];
       maximized = false;
-      sidebar-width = 192;
+      sidebar-width = 220;
+    };
+
+    "org/gnome/nm-applet/eap/20733462-55d8-41c6-8750-804765215f5b" = {
+      ignore-ca-cert = false;
+      ignore-phase2-ca-cert = false;
     };
 
     "org/gnome/nm-applet/eap/280b6a21-f889-4b85-94f8-993150ce4202" = {
@@ -307,7 +352,7 @@ in
       disabled-extensions = [ "dash-to-panel@jderose9.github.com" ];
       enabled-extensions = [ "blur-my-shell@aunetx" "appindicatorsupport@rgcjonas.gmail.com" "openweather-extension@jenslody.de" "unite@hardpixel.eu" "quake-mode@repsac-by.github.com" "user-theme@gnome-shell-extensions.gcampax.github.com" "clipboard-indicator@tudmotu.com" "switcher@landau.fi" "hide-universal-access@akiirui.github.io" "kernel-indicator@elboulangero.gitlab.com" "tofumenu@tofu" ];
       favorite-apps = [ "org.gnome.Nautilus.desktop" "org.gnome.tweaks.desktop" "com.discordapp.Discord.desktop" "code.desktop" "Alacritty.desktop" "firefox.desktop" ];
-      had-bluetooth-devices-setup = false;
+      had-bluetooth-devices-setup = true;
       welcome-dialog-last-shown-version = "40.1";
     };
 
@@ -359,7 +404,7 @@ in
     };
 
     "org/gnome/software" = {
-      check-timestamp = "int64 1624847832";
+      check-timestamp = "int64 1625607932";
       first-run = false;
       online-updates-timestamp = "int64 1624535205";
       update-notification-timestamp = "int64 1624535205";
@@ -389,11 +434,16 @@ in
       window-size = mkTuple [ 1045 380 ];
     };
 
+    "org/gtk/settings/color-chooser" = {
+      custom-colors = [ (mkTuple [ 0.796078 0.890196 ]) (mkTuple [ 0.933333 0.933333 ]) (mkTuple [ 0.541176 0.533333 ]) (mkTuple [ 0.827451 0.843137 ]) (mkTuple [ 0.529412 0.87451 ]) (mkTuple [ 0.203922 0.886275 ]) (mkTuple [ 0.388235 0.94902 ]) (mkTuple [ 2.3529e-2 0.594247 ]) ];
+      selected-color = mkTuple [ true 0.796078 ];
+    };
+
     "org/gtk/settings/file-chooser" = {
       clock-format = "12h";
       date-format = "regular";
       location-mode = "path-bar";
-      show-hidden = false;
+      show-hidden = true;
       show-size-column = true;
       show-type-column = true;
       sidebar-width = 192;
@@ -401,7 +451,7 @@ in
       sort-directories-first = false;
       sort-order = "ascending";
       type-format = "category";
-      window-position = mkTuple [ 15 41 ];
+      window-position = mkTuple [ 0 32 ];
       window-size = mkTuple [ 1891 989 ];
     };
 

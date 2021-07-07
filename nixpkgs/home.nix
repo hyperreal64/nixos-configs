@@ -17,32 +17,37 @@ let
         diff-so-fancy
         dracula-theme
         duf
+        elinks
         exercism
         fd
         fzf
         gcc
         gnumake
+        htop
         httpie
         hyperfine
         ibm-plex
+        jq
         killall
         libnotify
         lsd
         lsof
         neofetch
-        neovim
-        # neovim-nightly
+        neomutt
         nerdfonts
         ninja
         nix-direnv
-        nordic
+        nushell
         onedrive
+        pass
+        pinentry
         rpi-imager
+        powershell
         prettyping
         restic
         ripgrep
-        rnix-lsp
         s-tui
+        shellcheck
         tldr
         tmux
         unzip
@@ -59,14 +64,6 @@ let
         eog
         evince
         gnome-tweak-tool
-    ];
-
-    nodePkgs = with pkgs.nodePackages; [
-        bash-language-server
-        dockerfile-language-server-nodejs
-        pyright
-        vscode-json-languageserver-bin
-        yaml-language-server
     ];
 
 in
@@ -86,17 +83,43 @@ in
         homeDirectory = "/home/jas";
         stateVersion = "21.05";
 
-        packages = defaultPkgs ++ gnomePkgs ++ nodePkgs;
+        packages = defaultPkgs ++ gnomePkgs;
     };
 
     programs = {
-        neomutt.enable = true;
-        gpg.enable = true;
-        htop.enable = true;
-        jq.enable = true;
-        ssh.enable = true;
         direnv.enable = true;
         direnv.nix-direnv.enable = true;
+    };
+
+    programs.gpg = {
+        enable = true;
+        settings = {
+            no-emit-version = true;
+            no-comments = true;
+            display-charset = "utf-8";
+            keyid-format = "0xlong";
+            with-fingerprint = true;
+            list-options = "show-uid-validity";
+            verify-options = "show-uid-validity";
+            cert-digest-algo = "SHA512";
+            fixed-list-mode = true;
+            no-symkey-cache = true;
+            personal-cipher-preferences = [ "AES256" "AES192" "AES" ];
+            personal-compress-preferences = [ "ZLIB" "BZIP2" "ZIP" "Uncompressed" ];
+            personal-digest-preferences = [ "SHA512" "SHA384" "SHA256" ];
+            require-cross-certification = true;
+            s2k-cipher-algo = "AES256";
+            s2k-digest-algo = "SHA512";
+            use-agent = true;
+        };
+    };
+
+    services.gpg-agent = {
+        enable = true;
+        enableSshSupport = true;
+        defaultCacheTtlSsh = 60480000;
+        maxCacheTtl = 60480000;
+        pinentryFlavor = "curses";
     };
 
     xdg.userDirs = {

@@ -1,8 +1,12 @@
 { config, lib, pkgs, ... }:
 
 {
-    networking.networkmanager.enable = true;
+    hardware.bluetooth.enable = true;
+
+    services.blueman.enable = true;
     services.clipmenu.enable = true;
+
+    networking.networkmanager.enable = true;
 
     services.xserver = {
         enable = true;
@@ -14,6 +18,7 @@
 
     environment.systemPackages = with pkgs; [
         clipit
+        dmenu
         dunst
         gsimplecal
         lxappearance
@@ -27,9 +32,8 @@
         qalculate-gtk
         ranger
         rofi
-        rofi-calc
-	rofi-emoji
-	rofi-power-menu
+        rofi-file-browser
+	    rofi-power-menu
         sxhkd
         tint2
         xdotool
