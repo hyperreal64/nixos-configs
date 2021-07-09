@@ -24,6 +24,12 @@
           fsType = "vfat";
         };
 
+    fileSystems."/home/jas/tmp" =
+        { device = "tmpfs";
+          fsType = "tmpfs";
+          options = [ "nodev" "nosuid" "uid=1000" "gid=1000" "size=10G" "noexec" "mode=1700" ];
+      };
+
     swapDevices = [ ];
 
     hardware.system76.kernel-modules.enable = true;

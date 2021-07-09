@@ -12,37 +12,13 @@
              ./fontconfig.nix
              ./gnome.nix
              ./hardware-configuration.nix
+             ./networking.nix
              ./nvidia.nix
              # ./nvidia-external.nix
              # ./openbox.nix
+             # ./xfce.nix
         ];
 
-    # Enable zsh
-    programs.zsh.enable = true;
-
-    # Networking stuffs
-    networking = {
-        hostName = "ravenwatch";
-        interfaces = {
-            wlp0s20f3.useDHCP = true;
-        };
-        networkmanager.wifi.powersave = false;
-    };
-
-    # Firewall
-    networking.firewall = {
-        enable = true;
-        allowPing = true;
-        logRefusedPackets = true;
-    };
-
-    # Flatpak
-    services.flatpak.enable = true;
-    xdg.portal.enable = true; 
- 
-    # SSH daemon
-    services.sshd.enable = true;
- 
     # Enable sound
     sound.enable = true;
   
@@ -58,9 +34,6 @@
     # Set rule for systemd-tmpfilesd
     # Cleans /home/jas/tmp 15 minutes after every boot
     systemd.tmpfiles.rules = [ "e /home/jas/tmp 0755 jas jas 0 -" ];
-
-    # Enable systemd-resolved service
-    services.resolved.enable = true;
 
     # Timezone for Chicago/US Central
     time = {
@@ -92,6 +65,5 @@
     # Before changing this value read the documentation for this option
     # (e.g. man configuration.nix or on https://nixos.org/nixos/options.html).
     system.stateVersion = "21.05"; # Did you read the comment?
-
 }
 

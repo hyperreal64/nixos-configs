@@ -7,6 +7,9 @@
         chrome-gnome-shell.enable = true;
 	};
 
+    # Enable dconf
+    programs.dconf.enable = true;
+
     # Enable Seahorse
     programs.seahorse.enable = true;
 

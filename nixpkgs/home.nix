@@ -37,6 +37,7 @@ let
         nerdfonts
         ninja
         nix-direnv
+        nmap
         nushell
         onedrive
         pass
@@ -48,6 +49,7 @@ let
         ripgrep
         s-tui
         shellcheck
+        tcpdump
         tldr
         tmux
         unzip
@@ -59,13 +61,6 @@ let
         zip
     ];
 
-    gnomePkgs = with pkgs.gnome; [
-        dconf-editor
-        eog
-        evince
-        gnome-tweak-tool
-    ];
-
 in
 
 {
@@ -74,6 +69,8 @@ in
     imports = [
         ./dconf/default.nix
         ./git/default.nix
+        ./gnome/default.nix
+        ./gpg/default.nix
     ];
 
     nixpkgs.config.allowUnfree = true;
@@ -83,43 +80,12 @@ in
         homeDirectory = "/home/jas";
         stateVersion = "21.05";
 
-        packages = defaultPkgs ++ gnomePkgs;
+        packages = defaultPkgs;
     };
 
     programs = {
         direnv.enable = true;
         direnv.nix-direnv.enable = true;
-    };
-
-    programs.gpg = {
-        enable = true;
-        settings = {
-            no-emit-version = true;
-            no-comments = true;
-            display-charset = "utf-8";
-            keyid-format = "0xlong";
-            with-fingerprint = true;
-            list-options = "show-uid-validity";
-            verify-options = "show-uid-validity";
-            cert-digest-algo = "SHA512";
-            fixed-list-mode = true;
-            no-symkey-cache = true;
-            personal-cipher-preferences = [ "AES256" "AES192" "AES" ];
-            personal-compress-preferences = [ "ZLIB" "BZIP2" "ZIP" "Uncompressed" ];
-            personal-digest-preferences = [ "SHA512" "SHA384" "SHA256" ];
-            require-cross-certification = true;
-            s2k-cipher-algo = "AES256";
-            s2k-digest-algo = "SHA512";
-            use-agent = true;
-        };
-    };
-
-    services.gpg-agent = {
-        enable = true;
-        enableSshSupport = true;
-        defaultCacheTtlSsh = 60480000;
-        maxCacheTtl = 60480000;
-        pinentryFlavor = "curses";
     };
 
     xdg.userDirs = {

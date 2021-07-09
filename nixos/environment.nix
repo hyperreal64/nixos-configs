@@ -21,29 +21,29 @@
     ];
 
     environment.systemPackages = with pkgs; [
+        brave
         firefox
+        git
+        gopls
         harfbuzzFull
+        ldns
         mmc-utils
         neovim-nightly
+        nix-diff
+        nix-doc
         nix-du
         nix-top
-        nix-doc
         nix-tree
-        nix-diff
-        nodejs
-        brave
-        wget
-        tree-sitter
-        git
-        system76-firmware
-        gopls
-        rnix-lsp
-        zsh-nix-shell
         nodePackages.bash-language-server
         nodePackages.dockerfile-language-server-nodejs
         nodePackages.pyright
         nodePackages.vscode-json-languageserver-bin
         nodePackages.yaml-language-server
+        rnix-lsp
+        system76-firmware
+        tree-sitter
+        wget
+        zsh-nix-shell
     ];
 
     nix.extraOptions = ''
@@ -51,6 +51,11 @@
         keep-derivations = true
     '';
 
-    programs.dconf.enable = true;
+    # Enable Zsh
+    programs.zsh.enable = true;
+
+    # Flatpak
+    services.flatpak.enable = true;
+    xdg.portal.enable = true;
 }
 
