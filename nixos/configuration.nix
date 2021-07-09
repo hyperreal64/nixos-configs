@@ -31,10 +31,6 @@
         }];
     }];
 
-    # Set rule for systemd-tmpfilesd
-    # Cleans /home/jas/tmp 15 minutes after every boot
-    systemd.tmpfiles.rules = [ "e /home/jas/tmp 0755 jas jas 0 -" ];
-
     # Timezone for Chicago/US Central
     time = {
         timeZone = "America/Chicago";
