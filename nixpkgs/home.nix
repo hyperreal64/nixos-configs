@@ -23,25 +23,18 @@ let
         fzf
         gcc
         gnumake
-        htop
         httpie
         hyperfine
         ibm-plex
-        jq
         killall
         libnotify
-        lsd
         lsof
         neofetch
-        neomutt
         nerdfonts
         ninja
         nix-direnv
-        nmap
         nushell
         onedrive
-        pass
-        pinentry
         rpi-imager
         powershell
         prettyping
@@ -49,9 +42,7 @@ let
         ripgrep
         s-tui
         shellcheck
-        tcpdump
         tldr
-        tmux
         unzip
         urlview
         vscode
@@ -70,7 +61,8 @@ in
         ./dconf/default.nix
         ./git/default.nix
         ./gnome/default.nix
-        ./gpg/default.nix
+        ./ssh/default.nix
+        ./zsh/default.nix
     ];
 
     nixpkgs.config.allowUnfree = true;
@@ -84,6 +76,11 @@ in
     };
 
     programs = {
+        neomutt.enable = true;
+        gpg.enable = true;
+        htop.enable = true;
+        jq.enable = true;
+        ssh.enable = true;
         direnv.enable = true;
         direnv.nix-direnv.enable = true;
     };

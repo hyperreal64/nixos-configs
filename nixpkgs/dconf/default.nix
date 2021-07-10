@@ -151,10 +151,10 @@ in
       font-name = "NotoSans Nerd Font 11";
       gtk-im-module = "gtk-im-context-simple";
       gtk-theme = "Adwaita-dark";
-      icon-theme = "Marwaita-Dark";
+      icon-theme = "Papirus-Dark-Custom";
       monospace-font-name = "JetBrainsMono Nerd Font Mono 11";
       show-battery-percentage = true;
-      text-scaling-factor = 1.25;
+      text-scaling-factor = 1.0;
     };
 
     "org/gnome/desktop/notifications" = {
@@ -231,7 +231,7 @@ in
     "org/gnome/desktop/screensaver" = {
       lock-delay = "uint32 0";
       lock-enabled = false;
-      picture-uri = "file:///home/jas/onedrive/Pictures/wallpapers/scifi-fantasy/sunset.jpg";
+      picture-uri = "file:///home/jas/onedrive/Pictures/wallpapers/scifi-fantasy/synthwave-tech.jpg";
     };
 
     "org/gnome/desktop/session" = {
@@ -404,7 +404,7 @@ in
     };
 
     "org/gnome/software" = {
-      check-timestamp = "int64 1625607932";
+      check-timestamp = "int64 1625882141";
       first-run = false;
       online-updates-timestamp = "int64 1624535205";
       update-notification-timestamp = "int64 1624535205";
@@ -443,7 +443,7 @@ in
       clock-format = "12h";
       date-format = "regular";
       location-mode = "path-bar";
-      show-hidden = true;
+      show-hidden = false;
       show-size-column = true;
       show-type-column = true;
       sidebar-width = 192;
@@ -451,7 +451,7 @@ in
       sort-directories-first = false;
       sort-order = "ascending";
       type-format = "category";
-      window-position = mkTuple [ 0 32 ];
+      window-position = mkTuple [ 15 40 ];
       window-size = mkTuple [ 1891 989 ];
     };
 
