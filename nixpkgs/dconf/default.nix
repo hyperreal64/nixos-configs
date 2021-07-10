@@ -7,8 +7,8 @@ in
 {
   dconf.settings = {
     "ca/desrt/dconf-editor" = {
-      saved-pathbar-path = "/org/gnome/shell/extensions/";
-      saved-view = "/org/gnome/shell/extensions/";
+      saved-pathbar-path = "/org/blueman/plugins/recentconns/";
+      saved-view = "/org/blueman/plugins/";
       show-warning = false;
       window-height = 500;
       window-is-maximized = false;
@@ -78,18 +78,6 @@ in
       quake-mode-height = 80;
       quake-mode-hotkey = [ "<Alt>z" ];
       quake-mode-width = 100;
-    };
-
-    "org/blueman/general" = {
-      window-properties = [ 810 350 304 140 ];
-    };
-
-    "org/blueman/plugins/powermanager" = {
-      auto-power-on = "@mb true";
-    };
-
-    "org/blueman/plugins/recentconns" = {
-      recent-connections = ""[{'adapter': '80:32:53:F6:C6:7D', 'address': '20:18:06:00:A2:0D', 'alias': 'JLab Neon BT', 'icon': 'audio-card', 'name': 'Audio and input profiles', 'uuid': '00000000-0000-0000-0000-000000000000', 'time': '1625064103.8366506'}]"";
     };
 
     "org/gnome/baobab/ui" = {
@@ -162,7 +150,7 @@ in
     };
 
     "org/gnome/desktop/notifications" = {
-      application-children = [ "gnome-network-panel" "org-gnome-epiphany" "gnome-power-panel" "firefox" "org-gnome-nautilus" "org-sparkleshare-sparkleshare" "brave-browser" "org-gnome-screenshot" "org-gnome-software" "alacritty" ];
+      application-children = [ "gnome-network-panel" "org-gnome-epiphany" "gnome-power-panel" "firefox" "org-gnome-nautilus" "org-sparkleshare-sparkleshare" "brave-browser" "org-gnome-screenshot" "org-gnome-software" "alacritty" "ca-desrt-dconf-editor" ];
       show-in-lock-screen = false;
     };
 
@@ -172,6 +160,10 @@ in
 
     "org/gnome/desktop/notifications/application/brave-browser" = {
       application-id = "brave-browser.desktop";
+    };
+
+    "org/gnome/desktop/notifications/application/ca-desrt-dconf-editor" = {
+      application-id = "ca.desrt.dconf-editor.desktop";
     };
 
     "org/gnome/desktop/notifications/application/com-discordapp-discord" = {
