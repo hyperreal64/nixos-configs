@@ -43,6 +43,7 @@ let
         s-tui
         shellcheck
         tldr
+        tmux
         unzip
         urlview
         vscode
@@ -61,8 +62,9 @@ in
         ./dconf/default.nix
         ./git/default.nix
         ./gnome/default.nix
+        ./kitty/default.nix
+        ./shell/default.nix
         ./ssh/default.nix
-        ./zsh/default.nix
     ];
 
     nixpkgs.config.allowUnfree = true;
@@ -78,11 +80,7 @@ in
     programs = {
         neomutt.enable = true;
         gpg.enable = true;
-        htop.enable = true;
         jq.enable = true;
-        ssh.enable = true;
-        direnv.enable = true;
-        direnv.nix-direnv.enable = true;
     };
 
     xdg.userDirs = {

@@ -74,7 +74,7 @@ in
     };
 
     "com/github/repsac-by/quake-mode" = {
-      quake-mode-app = "Alacritty.desktop";
+      quake-mode-app = "kitty.desktop";
       quake-mode-height = 80;
       quake-mode-hotkey = [ "<Alt>z" ];
       quake-mode-width = 100;
@@ -86,6 +86,10 @@ in
 
     "org/blueman/plugins/powermanager" = {
       auto-power-on = "@mb true";
+    };
+
+    "org/blueman/plugins/recentconns" = {
+      recent-connections = ""[{'adapter': '80:32:53:F6:C6:7D', 'address': '20:18:06:00:A2:0D', 'alias': 'JLab Neon BT', 'icon': 'audio-card', 'name': 'Audio and input profiles', 'uuid': '00000000-0000-0000-0000-000000000000', 'time': '1625064103.8366506'}]"";
     };
 
     "org/gnome/baobab/ui" = {
@@ -148,13 +152,13 @@ in
       document-font-name = "NotoSans Nerd Font 11";
       font-antialiasing = "rgba";
       font-hinting = "slight";
-      font-name = "NotoSans Nerd Font 11";
+      font-name = "IBM Plex Sans 11";
       gtk-im-module = "gtk-im-context-simple";
-      gtk-theme = "Adwaita-dark";
-      icon-theme = "Papirus-Dark-Custom";
+      gtk-theme = "Dracula";
+      icon-theme = "Marwaita-Dark";
       monospace-font-name = "JetBrainsMono Nerd Font Mono 11";
       show-battery-percentage = true;
-      text-scaling-factor = 1.0;
+      text-scaling-factor = 1.25;
     };
 
     "org/gnome/desktop/notifications" = {
@@ -321,6 +325,10 @@ in
       sidebar-width = 220;
     };
 
+    "org/gnome/nm-applet" = {
+      disable-connected-notifications = true;
+    };
+
     "org/gnome/nm-applet/eap/20733462-55d8-41c6-8750-804765215f5b" = {
       ignore-ca-cert = false;
       ignore-phase2-ca-cert = false;
@@ -352,7 +360,7 @@ in
       disabled-extensions = [ "dash-to-panel@jderose9.github.com" ];
       enabled-extensions = [ "blur-my-shell@aunetx" "appindicatorsupport@rgcjonas.gmail.com" "openweather-extension@jenslody.de" "unite@hardpixel.eu" "quake-mode@repsac-by.github.com" "user-theme@gnome-shell-extensions.gcampax.github.com" "clipboard-indicator@tudmotu.com" "switcher@landau.fi" "hide-universal-access@akiirui.github.io" "kernel-indicator@elboulangero.gitlab.com" "tofumenu@tofu" ];
       favorite-apps = [ "org.gnome.Nautilus.desktop" "org.gnome.tweaks.desktop" "com.discordapp.Discord.desktop" "code.desktop" "Alacritty.desktop" "firefox.desktop" ];
-      had-bluetooth-devices-setup = true;
+      had-bluetooth-devices-setup = false;
       welcome-dialog-last-shown-version = "40.1";
     };
 
@@ -404,7 +412,7 @@ in
     };
 
     "org/gnome/software" = {
-      check-timestamp = "int64 1625882141";
+      check-timestamp = "int64 1625923350";
       first-run = false;
       online-updates-timestamp = "int64 1624535205";
       update-notification-timestamp = "int64 1624535205";
@@ -451,7 +459,7 @@ in
       sort-directories-first = false;
       sort-order = "ascending";
       type-format = "category";
-      window-position = mkTuple [ 15 40 ];
+      window-position = mkTuple [ 14 27 ];
       window-size = mkTuple [ 1891 989 ];
     };
 
