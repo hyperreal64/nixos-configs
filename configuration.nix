@@ -6,17 +6,17 @@
 
 {
     imports =
-        [    ./boot.nix
-             ./cachix.nix
-             ./environment.nix
-             ./fontconfig.nix
-             ./gnome.nix
-             ./hardware-configuration.nix
-             ./networking.nix
-             ./nvidia.nix
-             # ./nvidia-external.nix
-             # ./openbox.nix
-             # ./xfce.nix
+        [    ./boot/default.nix
+             ./cachix/default.nix
+             ./environment/default.nix
+             ./fontconfig/default.nix
+             ./gnome/default.nix
+             ./hardware/default.nix
+             ./networking/default.nix
+             # ./nvidia/default.nix
+             ./nvidia/external.nix
+             # ./openbox/default.nix
+             # ./xfce/default.nix
         ];
 
     # Enable sound

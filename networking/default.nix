@@ -30,7 +30,6 @@
         enable = true;
         allowPing = true;
         logRefusedPackets = true;
-        allowedTCPPorts = [ 22 1143 1025 ];
     };
 
     # dnsmasq
