@@ -7,7 +7,7 @@
 {
     imports =
         [    ./boot/default.nix
-             ./cachix/default.nix
+             ./cachix-config/default.nix
              ./environment/default.nix
              ./fontconfig/default.nix
              ./gnome/default.nix
