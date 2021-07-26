@@ -13,8 +13,8 @@
              ./gnome/default.nix
              ./hardware/default.nix
              ./networking/default.nix
-             # ./nvidia/default.nix
-             ./nvidia/external.nix
+             ./nvidia/default.nix
+             #./nvidia/external.nix
              # ./openbox/default.nix
              # ./xfce/default.nix
         ];
