@@ -21,7 +21,7 @@
 
     # Enable sound
     sound.enable = true;
-  
+
     # Configure sudo to allow no password for user jas
     security.sudo.extraRules = [{
         users = [ "jas" ];

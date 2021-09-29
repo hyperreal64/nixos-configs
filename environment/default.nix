@@ -26,7 +26,6 @@
         git
         gnupg
         gopls
-        harfbuzzFull
         ldns
         mmc-utils
         neovim-nightly
