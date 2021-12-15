@@ -5,19 +5,10 @@
 { config, pkgs, ... }:
 
 {
-    boot.loader = {
-        efi = {
-            canTouchEfiVariables = true;
-            efiSysMountPoint = "/boot";
-        };
-        grub = {
-            devices = [ "nodev" ];
-            efiSupport = true;
-            enable = true;
-            useOSProber = true;
-            version = 2;
-        };
-    };
+
+    # Use the systemd-boot EFI boot loader.
+    boot.loader.systemd-boot.enable = true;
+    boot.loader.efi.canTouchEfiVariables = true;
 
     console.font =
         "${pkgs.terminus_font}/share/consolefonts/ter-u28n.psf.gz";

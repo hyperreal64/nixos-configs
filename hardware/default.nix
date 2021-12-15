@@ -4,29 +4,44 @@
 { config, lib, pkgs, modulesPath, ... }:
 
 {
-    imports =
-        [ (modulesPath + "/installer/scan/not-detected.nix")
-        ];
+  imports =
+    [ (modulesPath + "/installer/scan/not-detected.nix")
+    ];
 
-    boot.initrd.availableKernelModules = [ "xhci_pci" "ahci" "nvme" "usbhid" "usb_storage" "sd_mod" "rtsx_pci_sdmmc" ];
-    boot.initrd.kernelModules = [ ];
-    boot.kernelModules = [ "kvm-intel" "nvidia" ];
-    boot.blacklistedKernelModules = ["nouveau"];
-    boot.extraModprobeConfig = "options snd-hda-intel probe_mask=1";
+  boot.initrd.availableKernelModules = [ "xhci_pci" "nvme" "ahci" "usb_storage" "usbhid" "sd_mod" "rtsx_usb_sdmmc" ];
+  boot.initrd.kernelModules = [ ];
+  boot.kernelModules = [ "kvm-amd" ];
+  boot.extraModulePackages = [ ];
 
-    fileSystems."/" =
-        { device = "/dev/disk/by-label/nixos";
-          fsType = "ext4";
-        };
+  fileSystems."/" =
+    { device = "/dev/disk/by-uuid/a799ff42-a7a0-4eca-b6da-5742e48e1260";
+      fsType = "ext4";
+    };
 
-    fileSystems."/boot" =
-        { device = "/dev/disk/by-label/boot";
-          fsType = "vfat";
-        };
+  fileSystems."/boot" =
+    { device = "/dev/disk/by-uuid/626D-7B4A";
+      fsType = "vfat";
+    };
+  fileSystems."/srv/finance" =
+    { device = "/dev/disk/by-label/external0";
+      fsType = "btrfs";
+    };
+  fileSystems."/srv/mail" =
+    { device = "/dev/disk/by-label/external0";
+      fsType = "btrfs";
+    };
+  fileSystems."/srv/restic" =
+    { device = "/dev/disk/by-label/external0";
+      fsType = "btrfs";
+    };
 
-    swapDevices = [ ];
+  swapDevices =
+    [ { device = "/dev/disk/by-uuid/245c3193-8ac7-4dca-a164-bfad2cb8ce89"; }
+    ];
 
-    hardware.pulseaudio.enable = true;
-
-    powerManagement.cpuFreqGovernor = lib.mkDefault "powersave";
+  hardware.cpu.amd.updateMicrocode = lib.mkDefault config.hardware.enableRedistributableFirmware;
+  hardware.pulseaudio.enable = true;
+  
+  # high-resolution display
+  hardware.video.hidpi.enable = lib.mkDefault true;
 }

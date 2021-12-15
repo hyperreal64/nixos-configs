@@ -19,8 +19,12 @@
     networking.firewall = {
         enable = true;
         allowPing = true;
+        allowedTCPPorts = [ 22 ];
     };
 
+    # Mullvad VPN
+    services.mullvad-vpn.enable = true;
+    
     # SSH
     services.sshd.enable = true;
 }

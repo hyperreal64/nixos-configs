@@ -1,6 +1,8 @@
 { config, pkgs, callPackage, ... }:
 
 {
+    nixpkgs.config.pulseaudio = true;
+
     services.xserver = {
         enable = true;
         desktopManager = {
@@ -19,11 +21,15 @@
 
     environment.systemPackages = with pkgs; [
         dmenu
+	pavucontrol
         ranger
         rofi
         rofi-file-browser
         rofi-power-menu
         xdotool
+	xfce.xfce4-pulseaudio-plugin
+	xfce.xfce4-cpugraph-plugin
+	xfce.xfce4-whiskermenu-plugin
         xfce.xfce4-genmon-plugin
         xfce.xfce4-weather-plugin
         xfce.xfce4-clipman-plugin
