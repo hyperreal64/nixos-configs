@@ -10,13 +10,10 @@
              ./cachix-config/default.nix
              ./environment/default.nix
              ./fontconfig/default.nix
-             ./gnome/default.nix
+             #./gnome/default.nix
              ./hardware/default.nix
              ./networking/default.nix
-             ./nvidia/default.nix
-             #./nvidia/external.nix
-             # ./openbox/default.nix
-             # ./xfce/default.nix
+             ./xfce/default.nix
         ];
 
     # Enable sound
@@ -60,6 +57,6 @@
     # this value at the release version of the first install of this system.
     # Before changing this value read the documentation for this option
     # (e.g. man configuration.nix or on https://nixos.org/nixos/options.html).
-    system.stateVersion = "21.05"; # Did you read the comment?
+    system.stateVersion = "21.11"; # Did you read the comment?
 }
 

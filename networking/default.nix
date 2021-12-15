@@ -3,10 +3,9 @@
 {
     # Basic network stuffs
     networking = {
-        extraHosts = "10.0.0.119 azura.local";
-        hostName = "ravenwatch";
+        hostName = "nocturnal";
         interfaces = {
-            wlp0s20f3.useDHCP = true;
+            wlp3s0.useDHCP = true;
         };
     };
 

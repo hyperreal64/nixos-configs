@@ -9,26 +9,15 @@
 
     environment.shells = [ pkgs.bashInteractive pkgs.zsh ];
 
-    nixpkgs.overlays = [
-        (import (let
-            #rev = "master";
-            rev = "2aff1c00dc619b5b8af3dee95461b41f3a6fd7f0";
-          in
-          builtins.fetchTarball {
-              url = "https://github.com/nix-community/neovim-nightly-overlay/archive/${rev}.tar.gz";
-          })
-        )
-    ];
-
     environment.systemPackages = with pkgs; [
-        brave
         firefox
         git
         gnupg
         gopls
         ldns
         mmc-utils
-        neovim-nightly
+        mullvad-vpn
+        neovim
         nix-diff
         nix-doc
         nix-du
@@ -40,9 +29,6 @@
         nodePackages.vscode-json-languageserver-bin
         nodePackages.yaml-language-server
         rnix-lsp
-        sshfs
-        system76-firmware
-        tree-sitter
         wget
         zsh-nix-shell
     ];
@@ -51,9 +37,6 @@
         keep-outputs = true
         keep-derivations = true
     '';
-
-    # sshfs
-    programs.fuse.userAllowOther = true;
 
     # GnuPG Agent
     programs.gnupg = {

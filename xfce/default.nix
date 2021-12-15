@@ -19,13 +19,10 @@
 
     environment.systemPackages = with pkgs; [
         dmenu
-        pavucontrol
-        qalculate-gtk
         ranger
         rofi
         rofi-file-browser
         rofi-power-menu
-        sxhkd
         xdotool
         xfce.xfce4-genmon-plugin
         xfce.xfce4-weather-plugin
